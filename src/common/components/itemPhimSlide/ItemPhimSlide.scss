@@ -1,0 +1,22 @@
+.ItemPhimSlide {
+  a {
+    text-decoration: none;
+    color: orangered;
+  }
+  width: 240px;
+  height: 370px;
+  .card__img {
+    height: 150px;
+  }
+  .card {
+    &-title {
+      color: black;
+    }
+    &-body__tacgia {
+      color: gray;
+    }
+    .tien {
+      color: gray;
+    }
+  }
+}

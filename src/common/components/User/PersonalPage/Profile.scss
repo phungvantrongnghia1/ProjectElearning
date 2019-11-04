@@ -1,0 +1,196 @@
+.Profile {
+  font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+  .item__form {
+    position: relative;
+    transition: 0.4s;
+    &:focus-within {
+      &::after {
+        height: 2px;
+        width: 75%;
+      }
+    }
+    &::after {
+      content: "";
+      width: 10%;
+
+      background-color: rgba(32, 32, 32, 0.966);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: 0.4s;
+    }
+
+    input {
+      // border-radius: 15px;
+
+      transition: 0.4s;
+      border: transparent;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.781);
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  &__left {
+    background-color: white;
+    box-shadow: 3px 1px 2px -2px rgba(128, 128, 128, 0.747);
+
+    .avatar {
+      width: 100%;
+      height: 200px;
+
+      span {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        background-color: rgba(0, 0, 0, 0.808);
+        border-radius: 50%;
+        i {
+          font-size: 70px;
+          color: white;
+          line-height: 130px;
+        }
+      }
+    }
+    .menu {
+      list-style-type: none;
+      text-align: center;
+      li {
+        cursor: pointer;
+        padding: 10px 0;
+        // background-color: green;
+        transition: 0.4s;
+        width: 70%;
+        // border-bottom-right-radius: 50px;
+        // border-top-right-radius: 50px;
+        border-radius: 50px;
+        margin: 0 auto;
+        &:hover {
+          background-color: rgba(114, 113, 113, 0.76);
+          width: 100%;
+          color: white;
+        }
+        &.active {
+          width: 100%;
+          background-color: rgba(114, 113, 113, 0.76);
+        }
+      }
+    }
+  }
+  &__right {
+    .form__IFor {
+    }
+    .story {
+      .course__item {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.637);
+        padding-bottom: 5px;
+        .col-lg-7 {
+          p {
+            padding: 0;
+            margin: 0;
+            color: rgba(128, 128, 128, 0.712);
+            &:first-child {
+              color: orangered;
+              font-size: 24px;
+            }
+          }
+          .rate__icon {
+            span {
+              i {
+                color: orangered;
+                box-shadow: 0px 2px 6px -2px orangered;
+                transform: rotate(20deg);
+              }
+            }
+          }
+        }
+        .col-lg-2 {
+          div {
+            text-align: center;
+            margin-top: 50%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(128, 128, 128, 0.541);
+            transform: translateY(-50%);
+            span {
+              display: inline-block;
+              margin-top: 11px;
+              i {
+                font-size: 34px;
+                color: gray;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .account {
+    .title {
+      border-bottom: 1px solid gray;
+    }
+    input {
+      border: transparent;
+      border-bottom: 1px solid gray;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .email {
+      input {
+        width: 75%;
+
+        margin-left: 2%;
+      }
+      &__edit {
+        display: inline-block;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .Profile {
+    &__left {
+      .avatar {
+        span {
+          width: 75px;
+          height: 75px;
+          i {
+            font-size: 29px;
+
+            line-height: 78px;
+          }
+        }
+      }
+    }
+    &__right {
+      .story {
+        .course__item {
+          .col-2.col-lg-2 {
+            div {
+              margin-top: 250%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .Profile {
+    &__right {
+      .story {
+        .course__item {
+          .col-2.col-lg-2 {
+            div {
+              margin-top: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

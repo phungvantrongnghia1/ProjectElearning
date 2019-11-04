@@ -1,0 +1,32 @@
+.khoahoc__quancao {
+  background-color: #f6f6f6;
+  &__img {
+    display: flex;
+    align-items: center;
+  }
+  &__time {
+    .nav__time {
+      h1 {
+        display: inline-block;
+      }
+      &__item {
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0 10px;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        border-radius: 5px;
+        &__name {
+          margin: 0 23px 0 10px;
+          background-color: transparent;
+          color: black;
+        }
+      }
+    }
+  }
+}

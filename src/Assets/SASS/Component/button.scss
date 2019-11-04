@@ -1,0 +1,18 @@
+.btn__seemore {
+  background-color: orangered;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  span {
+    i {
+      transition: 0.4s;
+      font-size: 20px;
+    }
+  }
+  &:hover {
+    box-shadow: 1px 1px 4px 3px rgba(128, 128, 128, 0.507);
+    i {
+      transform: translateX(15px);
+    }
+  }
+}

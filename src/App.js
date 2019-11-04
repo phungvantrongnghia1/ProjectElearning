@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.scss";
+import { BrowserRouter, Switch } from "react-router-dom";
+import HomeTemplate from "./templates/HomePageTemplate";
+import Homepage from "./pages/homepage/Homepage";
+import KhoaHoc from "./common/containers/KhoaHoc/KhoaHoc";
+import ChiTietKhoaHoc from "./common/components/ChiTietKhoaHoc/ChiTietKhoaHoc";
+import ShoppingCar from "./common/components/ShoppingCar/ShoppingCar";
+import PersonalPage from "./common/components/User/PersonalPage/PersonalPage";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <HomeTemplate exact path="/" Component={Homepage}></HomeTemplate>
+        <HomeTemplate exact path="/khoahoc" Component={KhoaHoc}></HomeTemplate>
+        <HomeTemplate
+          exact
+          path="/khoahoc/chitiet/:maKhoaHoc"
+          Component={ChiTietKhoaHoc}
+        ></HomeTemplate>
+        <HomeTemplate
+          exact
+          path="/shoppingcar"
+          Component={ShoppingCar}
+        ></HomeTemplate>
+        <HomeTemplate
+          exact
+          path="/profile"
+          Component={PersonalPage}
+        ></HomeTemplate>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,120 @@
+.ItemPhim {
+  padding: 0 15px;
+  position: relative;
+  &:hover .Itemlayout {
+    display: inline-block;
+    opacity: 1;
+    // display: block;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  .Itemlayout {
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: -331px;
+
+    z-index: 10;
+    box-shadow: 0px 1px 4px 0px rgba(128, 128, 128, 0.795);
+    display: none;
+    opacity: 0;
+    // display: none;
+    visibility: hidden;
+    // transform: translateY(-10%);
+    transition: 0.6s;
+    animation: myAnimationin 0.3s ease-out;
+    border-radius: 5px;
+    &__box {
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        position: absolute;
+        top: 174px;
+        left: -24px;
+        z-index: -1;
+        transform: rotate(45deg);
+        box-shadow: -12px 14px 2px -13px rgba(128, 128, 128, 0.795);
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+    &__img {
+      display: inline-block;
+      img {
+        width: 40px !important;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+    &__button {
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    &.specail {
+      left: -330px;
+      .Itemlayout__box {
+        &::after {
+          left: 275px !important;
+          box-shadow: 11px -10px 5px -12px rgba(128, 128, 128, 0.795);
+        }
+      }
+    }
+  }
+  h3 {
+    color: red;
+  }
+  .card {
+    //  box-shadow: 1px 1px 4px 4px rgb(219, 214, 214);
+    position: relative;
+
+    &__img {
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-body {
+      font-family: "Roboto", sans-serif;
+      &__tien {
+        .tien {
+          text-decoration: line-through;
+        }
+        .khuyenmai {
+          color: orangered;
+          span {
+            i {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+    &-text {
+      .icon__start {
+        color: rgb(245, 110, 0);
+      }
+    }
+  }
+}
+@keyframes myAnimationin {
+  0% {
+    top: -5%;
+  }
+  100% {
+    top: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .ItemPhim {
+    padding: 0 50px;
+  }
+}

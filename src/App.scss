@@ -1,0 +1,25 @@
+@import "../src/pages/homepage/Homepage.scss";
+@import "../src/Assets/SASS/Helpers/mixin.scss";
+@import "../src/common/components/User/FormDangNhap/FormDangNhap.scss";
+@import "../src/common/components/Header/Header.scss";
+@import "../src/common/components/Carousel/Carousel.scss";
+@import "../src/common/components/Panel/Panel.scss";
+@import "../src/common/components/ItemPhim/ItemPhim.scss";
+@import "../src/common/components/Footer/Footer.scss";
+@import "../src/common/containers/KhoaHoc/KhoaHoc.scss";
+@import "../src/common/components/itemPhimSlide/ItemPhimSlide.scss";
+@import "../src/common/components/DongHo/DongHo.scss";
+@import "../src/common/components/ChiTietKhoaHoc/ChiTietKhoaHoc.scss";
+@import "../src/common/components/ShoppingCar/Checkout/Checkout.scss";
+@import "../src/common/components/ShoppingCar/ShoppingCar.scss";
+@import "../src/common/components/User/PersonalPage/Profile.scss";
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+}

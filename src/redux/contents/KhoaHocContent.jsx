@@ -1,0 +1,7 @@
+export const LAY_DANH_SACH_KHOA_HOC = "LAY_DANH_SACH_KHOA_HOC";
+export const LAY_CHI_TIET_KHOA_HOC = "LAY_CHI_TIET_KHOA_HOC";
+export const DANG_NHAP = "DANG_NHAP";
+export const ADD_TO_CARD = "ADD_TO_CARD";
+export const UPDATE_CART = "UPDATE_CART";
+export const REMOVE__ITEM__SHOPPING = "REMOVE__ITEM__SHOPPING";
+export const REGISTRY_COURSE = "REGISTRY_COURSE";

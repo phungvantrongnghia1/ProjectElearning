@@ -1,0 +1,364 @@
+.detail {
+  font-family: "Raleway", sans-serif;
+  // background-color: rgb(85, 84, 84);
+  background-image: url("https://cyberlearn-21.web.app/img/headerbg.png");
+  padding-top: 150px;
+  color: white;
+  &__title {
+    background-color: rgba(238, 232, 232, 0.133);
+  }
+  &__content {
+    background-color: white;
+    .content {
+      color: black;
+
+      &__info {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.568);
+        .author {
+          width: 100%;
+          &__info {
+            img {
+              border-radius: 50%;
+              width: 60px;
+              height: 60px;
+            }
+          }
+          &__section {
+            width: 100%;
+            .section__icon {
+              display: inline-block;
+              padding-top: 10px;
+              i {
+                font-size: 40px;
+                color: orangered;
+              }
+            }
+          }
+          &__rate {
+            color: gray;
+            i {
+              color: orangered;
+            }
+          }
+        }
+      }
+      &__introduce {
+        color: gray;
+      }
+      &__learn {
+        background-color: #f9f9f9;
+        &__title {
+          h4 {
+            font-weight: 500;
+            span {
+              i {
+                font-size: 24px;
+                color: orangered;
+              }
+            }
+          }
+        }
+        border: 1px solid rgba(128, 121, 121, 0.521);
+        &__item {
+          padding: 10px 0;
+          span:last-child {
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+        &__icon {
+          color: red;
+          i {
+            color: orangered;
+            font-size: 20px;
+          }
+        }
+      }
+      &__video {
+        .video {
+          &__section {
+            background-color: #f2f2f2;
+            padding: 10px 0 10px 20px;
+            &__btn {
+              padding: 2px !important;
+            }
+          }
+          &__box {
+            list-style-type: none;
+            &__item {
+              background-color: #f9f9f9;
+              & > span:first-child {
+                text-align: center;
+                line-height: 30px;
+                border-radius: 50%;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border: 1px solid gray;
+                background-color: green;
+                i {
+                  margin-left: 3px;
+                  color: white;
+                }
+              }
+            }
+            .item__name {
+              color: rgb(109, 109, 109);
+            }
+            .item__time {
+              display: inline-block;
+              line-height: 10px;
+              i {
+                font-size: 20px;
+                color: green;
+              }
+              span {
+                font-size: 25px;
+                color: rgb(109, 109, 109);
+              }
+            }
+          }
+        }
+        &__seemore {
+          .btn__seemore {
+            @include btn-seemore(green);
+          }
+        }
+      }
+      &__review {
+        h3 {
+          font-weight: 600;
+        }
+        .review__rating {
+          p {
+            font-weight: bold;
+            color: gray;
+          }
+          i {
+            color: orangered;
+            font-size: 20px;
+          }
+        }
+        .progress {
+          &-bar {
+            background: linear-gradient(0deg, red, yellow);
+          }
+          height: 1.5rem !important;
+          &__bar__1 {
+            width: 75% !important;
+          }
+          &__bar__2 {
+            width: 55% !important;
+          }
+          &__bar__3 {
+            width: 15% !important;
+          }
+          &__bar__4 {
+            width: 1% !important;
+          }
+          &__bar__5 {
+            width: 1% !important;
+          }
+        }
+        .review__percent {
+          i {
+            color: orangered;
+          }
+          span {
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+        .review__comment {
+          border-top: 1px solid rgba(128, 128, 128, 0.747);
+          .comment__avatar {
+            line-height: 38px;
+            span {
+              display: inline-block;
+              width: 40px;
+              height: 40px;
+              border: 1px solid gray;
+              border-radius: 50%;
+              font-weight: 600;
+            }
+          }
+          .comment__name {
+            p:first-child {
+              font-weight: 600;
+            }
+          }
+          .comment__content {
+            i {
+              font-size: 20px;
+              color: orangered;
+            }
+            p {
+              font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+              color: gray;
+            }
+          }
+          .comment__select {
+            span {
+              color: gray;
+              cursor: pointer;
+            }
+            span.btn {
+              border: 1px solid gray;
+              padding: 0 10px;
+
+              margin: 0 10px;
+            }
+          }
+          .btn__seemore {
+            button {
+              @include btn-seemore(orangered);
+            }
+          }
+        }
+      }
+      .card {
+        padding: 10xp 20px;
+        border: 0 !important;
+        box-shadow: -2px 0px 4px -3px grey;
+        &__gia {
+          .col-lg-6:first-child {
+            line-height: 57px;
+            cursor: pointer;
+            .gia {
+              &__icon {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                // border: 1px solid gray;
+                border-radius: 50%;
+                line-height: 46px;
+                text-align: center;
+                transition: 0.4s;
+                i {
+                  font-size: 24px;
+                  color: gray;
+                  transition: 0.4s;
+                }
+              }
+              &__like {
+                font-size: 20px;
+                padding-left: 5px;
+                color: gray;
+                transition: 0.4s;
+              }
+            }
+            &:hover {
+              .gia {
+                &__icon {
+                  border-color: red;
+                  i {
+                    color: red;
+                  }
+                }
+                &__like {
+                  color: red;
+                }
+              }
+            }
+          }
+          .col-lg-6:last-child {
+            line-height: 57px;
+            .gia {
+              &__gia {
+                font-style: italic;
+                font-size: 34px;
+                color: orangered;
+                font-weight: 700;
+              }
+            }
+            &:hover {
+            }
+          }
+        }
+        &__button {
+          button {
+            border: 0;
+            padding: 15px 0;
+            transition: 0.4s;
+            color: black;
+            font-weight: 500;
+          }
+          .add {
+            background-color: orangered;
+
+            &:hover {
+              color: white;
+            }
+          }
+          .buy {
+            &:hover {
+              color: orangered;
+              box-shadow: 3px 0px 3px -1px rgba(116, 111, 111, 0.808);
+            }
+          }
+        }
+        &__box {
+          padding: 20px 0;
+          &__right {
+            // display: inline-block;
+            // float: right;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .detail {
+    .content {
+      margin: 0 !important;
+      padding: 0 !important;
+      &__info {
+        padding: 0 30px;
+      }
+      &__name {
+        text-align: center;
+      }
+      .video__box__item {
+        .item__name {
+          font-size: 13px;
+        }
+        .float-right.item__time {
+          span:first-child {
+            i {
+              font-size: 12px;
+            }
+          }
+          span:last-child {
+            font-size: 13px;
+          }
+        }
+      }
+      .card {
+        img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+        &-body {
+          .card__gia {
+            .col-lg-6 {
+              line-height: 25px;
+              .gia__like {
+                font-size: 15px;
+              }
+              .gia__gia {
+                font-size: 19px;
+              }
+            }
+          }
+          .card__button {
+            button {
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
