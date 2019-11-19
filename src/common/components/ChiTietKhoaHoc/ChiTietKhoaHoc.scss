@@ -31,14 +31,14 @@
               padding-top: 10px;
               i {
                 font-size: 40px;
-                color: orangered;
+                color: #f7bb3ae0;
               }
             }
           }
           &__rate {
             color: gray;
             i {
-              color: orangered;
+              color: #f7bb3ae0;
             }
           }
         }
@@ -54,7 +54,7 @@
             span {
               i {
                 font-size: 24px;
-                color: orangered;
+                color: #f7bb3ae0;
               }
             }
           }
@@ -163,7 +163,7 @@
         }
         .review__percent {
           i {
-            color: orangered;
+            color: #f7bb3ae0;
           }
           span {
             font-size: 15px;
@@ -191,7 +191,7 @@
           .comment__content {
             i {
               font-size: 20px;
-              color: orangered;
+              color: #f7bb3ae0;
             }
             p {
               font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
@@ -212,7 +212,7 @@
           }
           .btn__seemore {
             button {
-              @include btn-seemore(orangered);
+              @include btn-seemore(#f7bb3ae0);
             }
           }
         }
@@ -285,7 +285,7 @@
             font-weight: 500;
           }
           .add {
-            background-color: orangered;
+            background-color: #f7bb3ae0;
 
             &:hover {
               color: white;

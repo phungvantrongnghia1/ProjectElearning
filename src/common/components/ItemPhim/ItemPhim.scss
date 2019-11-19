@@ -13,9 +13,9 @@
     padding: 20px;
     box-sizing: border-box;
     position: absolute;
-    width: 100%;
+    width: 136%;
     top: 0;
-    right: -331px;
+    right: -347px;
 
     z-index: 10;
     box-shadow: 0px 1px 4px 0px rgba(128, 128, 128, 0.795);
@@ -59,6 +59,7 @@
       transform: translateX(-50%);
     }
     &.specail {
+      width: 127% !important;
       left: -330px;
       .Itemlayout__box {
         &::after {
@@ -87,12 +88,14 @@
       &__tien {
         .tien {
           text-decoration: line-through;
+          color: gray;
         }
         .khuyenmai {
-          color: orangered;
+          color: black;
           span {
             i {
               font-size: 20px;
+              color: #f7bb3ae0;
             }
           }
         }
@@ -100,7 +103,7 @@
     }
     &-text {
       .icon__start {
-        color: rgb(245, 110, 0);
+        color: #f7bb3ae0;
       }
     }
   }

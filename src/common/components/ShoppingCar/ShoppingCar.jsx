@@ -39,7 +39,7 @@ export default function ShoppingCar() {
               By Martin Perhiniak, Yes I'm a Designer
             </p>
           </div>
-          <div className="col-2 col-lg-2 course__section">
+          <div className="col-2 col-lg-2 course__section text-left">
             <div>
               <span>
                 <i class="fas fa-save    "></i>
@@ -87,7 +87,7 @@ export default function ShoppingCar() {
               <p className="total__price">$120</p>
               <div className="text-center my-3">
                 <button
-                  className="btn btn-success w-75 py-3"
+                  className="btn btn-success w-75 py-3 btn__checkout"
                   onClick={() => renderCheckout()}
                 >
                   Checkout

@@ -4,7 +4,7 @@ let axiosConfig = {
   headers: {
     Authorization:
       "Bearer " +
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGVtbyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkhWIiwibmJmIjoxNTcxMzkyNTQ5LCJleHAiOjE1NzEzOTYxNDl9.DkE8omtY-Ja2Sg8tg_CRdZC9k59u3oXnQ9T_lheewbU"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiaG9haW5pZW0iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJHViIsIm5iZiI6MTU3MzcxOTk5NiwiZXhwIjoxNTczNzIzNTk2fQ.dQXt0QI3qjnYf0AfLr8E_YV4Ic6IOH7K77EWtBRQNyw"
   }
 };
 export const layDanhSachKhoaHoc = () => {
@@ -84,4 +84,48 @@ export const registryCourse = async item => {
 export const getDetailUser = user => {
   // không có lưu ở store
   // lưu ở localstore
+};
+export const editCourseDitpatch = item => {
+  return async dispath => {
+    try {
+      let result = await axios.put(
+        "http://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/CapNhatKhoaHoc",
+        item,
+        axiosConfig
+      );
+      console.log(result.data);
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+};
+export const addCourse = item => {
+  return async () => {
+    try {
+      let result = await axios.post(
+        "http://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/ThemKhoaHoc",
+        item,
+        axiosConfig
+      );
+      return result.data;
+    } catch (err) {
+      console.log(err.response.data);
+      return err.response.data;
+    }
+  };
+};
+export const removeCourse = item => {
+  return async () => {
+    try {
+      let result = await axios.delete(
+        "http://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/XoaKhoaHoc",
+        item,
+        axiosConfig
+      );
+      return result.data;
+    } catch (err) {
+      console.log(err.response.data);
+      return err.response.data;
+    }
+  };
 };

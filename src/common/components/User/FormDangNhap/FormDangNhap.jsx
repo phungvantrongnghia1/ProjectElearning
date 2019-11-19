@@ -1,8 +1,10 @@
 import React from "react";
 import useForm from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { dangNhap } from "../../../../redux/actions/KhoaHocAction";
 export default function FormDangNhap(props) {
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const dispatch = useDispatch();
   const onSubmit = async data => {
     let user = {
       taiKhoan: data.useName,
@@ -14,6 +16,10 @@ export default function FormDangNhap(props) {
       userRes !== "Tài khoản hoặc mật khẩu không đúng!" &&
       userRes !== undefined
     ) {
+      dispatch({
+        type: "SetKeyLogin",
+        data: false
+      });
       alert("Login is success");
       // window.location.reload();
     } else {

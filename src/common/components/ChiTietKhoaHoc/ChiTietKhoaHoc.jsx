@@ -1,16 +1,26 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { layChiTietKhoaHoc } from "../../../redux/actions/KhoaHocAction";
+import FormDangNhap from "../User/FormDangNhap/FormDangNhap";
+import {
+  layChiTietKhoaHoc,
+  addCart
+} from "../../../redux/actions/KhoaHocAction";
 import Footer from "../Footer/Footer";
-import { async } from "q";
 export default function detailKhoalearn(props) {
   const [chiTiet, setChiTiet] = useState("");
   let [userCourse, setUserCourse] = useState({});
   const dispatch = useDispatch("");
   const likeIcon = useRef("");
-
+  const [keyLoad, setKeyload] = useState(true);
+  console.log(props);
   let key = true;
+  useEffect(() => {
+    if (keyLoad) {
+      // window.location.replace("now");
+      setKeyload(false);
+    }
+  }, []);
   useEffect(() => {
     //FE_GP09
     let idCourse = props.match.params.maKhoaHoc;
@@ -33,6 +43,18 @@ export default function detailKhoalearn(props) {
     }
     likeIcon.current.className = "fas fa-heart  add";
     console.log(likeIcon.current);
+  };
+  const addToCart = item => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    if (user === null) {
+      let result = dispatch({
+        type: "SetKeyLogin",
+        data: true
+      });
+    } else {
+      dispatch(addCart(item));
+    }
   };
   return (
     <div className="container-fluid detail w-100 h-100 mx-0 px-0">
@@ -516,7 +538,12 @@ export default function detailKhoalearn(props) {
                 </div>
                 <div className="card__button text-center py-3">
                   <div className="content__learn__item">
-                    <button className="add w-75  my-2">ADD TO CARD</button>
+                    <button
+                      className="add w-75  my-2"
+                      onClick={() => addToCart(chiTiet)}
+                    >
+                      ADD TO CARD
+                    </button>
                   </div>
                   <div>
                     <button className="buy w-75  my-2">BUY NOW</button>
@@ -592,3 +619,4 @@ export default function detailKhoalearn(props) {
     </div>
   );
 }
+// error at cart dont get story of user date 13/11

@@ -18,11 +18,23 @@
     }
     &__section {
       height: 40px;
+      border-radius: 15px;
+      border: transparent;
+      padding: 0 10px;
+    }
+    .btn__search {
+      height: 38px;
     }
   }
   &__content {
     font-family: "Roboto", sans-serif;
     background-color: #f6f6f6;
+    .khoahoc__carousel {
+      h1 {
+        width: 100%;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.356);
+      }
+    }
     a {
       text-decoration: none;
       color: black;
@@ -70,6 +82,9 @@
         font-size: 150px;
         color: rgba(128, 128, 128, 0.897);
       }
+      .content__box {
+        opacity: 0;
+      }
     }
   }
 
@@ -98,12 +113,16 @@
         font-weight: 700;
       }
     }
+    &__box {
+      opacity: 0;
+    }
   }
   &__log {
     &__title {
       font-weight: 700;
     }
     &__item {
+      opacity: 0;
       .card {
         border: 0px !important;
         &-body {
@@ -135,6 +154,19 @@
     }
   }
 }
+.activeCourse {
+  animation: atCourse 0.8s linear;
+  opacity: 1 !important;
+}
+.activeAuthor {
+  animation: atAuthor 0.8s linear;
+  opacity: 1 !important;
+}
+.activeBog {
+  animation: acBlog 0.8s linear;
+  opacity: 1 !important;
+}
+
 @media screen and (max-width: 768px) {
   .khoahoc {
     &__title {
@@ -142,6 +174,7 @@
         .btn__search {
           margin-top: 20px;
           margin-bottom: 1px;
+          height: 38px;
         }
       }
     }
@@ -150,11 +183,58 @@
 @media screen and (max-width: 576px) {
   .khoahoc {
     &__title {
+      h1 {
+        margin-top: 20px;
+      }
+      height: 70%;
       &__form {
         .btn__search {
           margin-top: 10px;
         }
       }
+      .col-lg-3 {
+        padding: 5px 0;
+        width: 70%;
+      }
     }
+  }
+}
+@keyframes atCourse {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes atAuthor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes acBlog {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

@@ -6,8 +6,9 @@ export default function DongHo() {
   const [hours, setHours] = useState();
   const [day, setDay] = useState();
   const [active, setActive] = useState(true);
+  const watchRef = useRef(null);
   useEffect(() => {
-    let deadline = new Date("Sep 30, 2019 15:37:25").getTime();
+    let deadline = new Date("Nov 30, 2019 15:37:25").getTime();
     if (active) {
       let i = 0;
       setInterval(() => {
@@ -24,8 +25,16 @@ export default function DongHo() {
       }, 1000);
     }
   }, [active]);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let y = window.pageYOffset;
+      if (y > 2580) {
+        watchRef.current.classList.add("activeWatch");
+      }
+    });
+  }, []);
   return (
-    <div className="khoahoc__quancao pt-5 row  container m-auto">
+    <div className="khoahoc__quancao pt-5 row  container m-auto" ref={watchRef}>
       <div className="col-lg-4 khoahoc__quancao__img">
         <span>
           <img src="https://cyberlearn-21.web.app/img/countdown.png" alt="" />
@@ -44,16 +53,12 @@ export default function DongHo() {
       <div className="col-lg-4 khoahoc__quancao__time">
         <h5>HURRY UP! IT'S ONLY LEFT</h5>
         <ul className="nav__time">
-          <li className="nav__time__item">
-            <p>{day}</p>
-          </li>
+          <li className="nav__time__item">{day}</li>
           <h1>:</h1>
           <li className="nav__time__item">{hours}</li> <h1>:</h1>
           <li className="nav__time__item">{min}</li> <h1>:</h1>
           <li className="nav__time__item">{sec}</li>
-          <li className="nav__time__item nav__time__item__name">
-            <p>Days</p>
-          </li>
+          <li className="nav__time__item nav__time__item__name">Days</li>
           <li className="nav__time__item nav__time__item__name">Hours</li>
           <li className="nav__time__item nav__time__item__name">Min</li>
           <li className="nav__time__item nav__time__item__name">Sec</li>

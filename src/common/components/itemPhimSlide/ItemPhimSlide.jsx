@@ -19,13 +19,13 @@ export default function ItemPhimSlide(props) {
           </div>
           <div className="card-body">
             {kiemTraTen(props.item.tenKhoaHoc)}
-            <div classname="card-text mb-2">
+            <div classname="card-text mb-2 icon__card">
               <i className="fas fa-star icon__start" />
               <i className="fas fa-star icon__start" />
               <i className="fas fa-star icon__start" />
               <i className="fas fa-star icon__start" />
               <i className="fas fa-star icon__start" />
-              <i>(5355)</i>
+              <span className="ml-2 rate text-dark">4.1 (155)</span>
             </div>
 
             <div className="card-body__tacgia">
@@ -35,9 +35,6 @@ export default function ItemPhimSlide(props) {
               <span className="tien">$19.99</span>
               <span className="khuyenmai ml-2 h4">
                 <i> $15.99</i>
-                <span classname="ml-1">
-                  <i className="fas fa-tags    " />
-                </span>
               </span>
             </div>
           </div>

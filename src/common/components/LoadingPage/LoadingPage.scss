@@ -4,10 +4,10 @@
   margin: 0 auto;
   position: fixed;
   top: 0;
-  background-color: black;
+  background-color: white;
 }
 .p {
-  border: 4px solid red;
+  border: 4px solid rgba(255, 68, 0, 0.76);
   width: 120px;
   height: 120px;
   position: absolute;
@@ -23,7 +23,7 @@
   animation-delay: 0.2s;
 }
 .p2 {
-  border-color: teal;
+  border-color: rgba(255, 68, 0, 0.76);
   width: 140px;
   height: 140px;
   border-top: 4px solid transparent;
@@ -32,7 +32,7 @@
   transform: translate(-50%, -50%) rotate(-30deg);
 }
 .p3 {
-  border-color: violet;
+  border-color: rgba(255, 68, 0, 0.76);
   width: 160px;
   height: 160px;
   border-top: 4px solid transparent;
@@ -43,7 +43,7 @@
 .p4 {
   width: 180px;
   height: 180px;
-  border-color: greenyellow;
+  border-color: rgba(255, 68, 0, 0.76);
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
   animation-delay: 0.1s;

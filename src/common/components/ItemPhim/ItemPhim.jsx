@@ -18,6 +18,7 @@ export default function ItemPhim(props) {
       return <p className="card-title h5">{name.substring(0, 12)}.......</p>;
     }
   };
+  const onDetail = () => {};
   const addToCart = item => {
     console.log("add cart");
     dispatch(addCart(item));
@@ -35,15 +36,13 @@ export default function ItemPhim(props) {
         <p className="Itemlayout__tenkhoahoc py-2">title khoa hoc ne </p>
         <p className="Itemlayout__mota">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-          voluptates, hic quas quos nihil eos animi maiores eaque suscipit
-          aliquid, velit sequi. Laboriosam obcaecati debitis itaque nisi
-          accusantium quis doloribus.
+          Laboriosam obcaecati debitis itaque nisi accusantium quis doloribus.
         </p>
         <div className="row mx-0">
-          <div className="col-lg-4 px-0">
+          <div className="col-lg-4 px-0 pr-1">
             <i class="fas fa-signal    "></i>Advanced
           </div>
-          <div className="col-lg-4 px-0">
+          <div className="col-lg-4 px-0 ">
             <i class="fas fa-list    "></i> 6 Lectures
           </div>
           <div className="col-lg-4 px-0">
@@ -67,7 +66,11 @@ export default function ItemPhim(props) {
         </div>
       </div>
       {/* <h3 className="stt">{props.item.maKhoaHoc}</h3> */}
-      <Link to={`/khoahoc/chitiet/${props.item.maKhoaHoc}`}>
+      <Link
+        to={`/khoahoc/chitiet/${props.item.maKhoaHoc}`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <div className="card">
           <div className="card__img">
             <img className="card-img-top" src={props.item.hinhAnh} alt="alo" />
@@ -80,7 +83,7 @@ export default function ItemPhim(props) {
               <i class="fas fa-star icon__start"></i>
               <i class="fas fa-star icon__start"></i>
               <i class="fas fa-star icon__start"></i>
-              <i>(5355)</i>
+              <i>5.0 (155)</i>
             </div>
             <div className="card-body__tacgia">
               <p>Join Dea</p>

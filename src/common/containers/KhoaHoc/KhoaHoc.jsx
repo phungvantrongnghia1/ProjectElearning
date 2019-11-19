@@ -11,16 +11,57 @@ import ItemPhim from "../../components/ItemPhim/ItemPhim";
 import LoadingPage from "../../components/LoadingPage/LoadingPage";
 import DongHo from "../../components/DongHo/DongHo";
 import Footer from "../../components/Footer/Footer";
+import Carousel from "../../components/Carousel/Carousel";
 import { Link } from "react-router-dom";
+import OwlCarousel from "react-owl-carousel";
+import ItemPimSlide from "../../components/itemPhimSlide/ItemPhimSlide";
 export default function KhoaHoc() {
   const KhoaHocReducer = useSelector(state => state.KhoaHocReducer);
   const [, setDSRender] = useState([]);
+  const [itemCarou, setItemCarou] = useState(5);
   const dispatch = useDispatch();
   const danhMuc = useRef("Development");
   const mangChon = useRef("");
   const timKiem = useRef("");
-  //
-  console.log(KhoaHocReducer.DSKH.length);
+  const courseRef = useRef(null);
+  const authorRef = useRef(null);
+  const blogone = useRef(null);
+  const blogtwo = useRef(null);
+  const blogthree = useRef(null);
+  const [keyLoad, setKeyLoad] = useState(true);
+
+  useEffect(() => {
+    if (keyLoad) {
+      console.log("vo");
+      window.addEventListener("scroll", () => {
+        let y = window.pageYOffset;
+
+        if (y > 380) {
+          courseRef.current.classList.add("activeCourse");
+        }
+        if (y > 2852) {
+          authorRef.current.classList.add("activeAuthor");
+        }
+        if (y > 3324) {
+          blogone.current.classList.add("activeBog");
+          setTimeout(() => {
+            blogtwo.current.classList.add("activeBog");
+          }, 500);
+          setTimeout(() => {
+            blogthree.current.classList.add("activeBog");
+          }, 1000);
+        }
+      });
+    } else {
+      console.log("wrong!");
+    }
+    return () => {
+      window.removeEventListener("scroll", () => {
+        setKeyLoad(false);
+        console.log("false roi");
+      });
+    };
+  }, []);
   const reducer = (state, action) => {
     switch (action) {
       case "All": {
@@ -82,6 +123,26 @@ export default function KhoaHoc() {
     }
   };
   useEffect(() => {
+    if (window.innerWidth < 576) {
+      setItemCarou(2);
+    } else if (window.innerWidth > 912) {
+      setItemCarou(5);
+    } else if (window.innerWidth > 576) {
+      setItemCarou(3);
+    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 576) {
+        setItemCarou(2);
+      } else if (window.innerWidth < 912) {
+        setItemCarou(3);
+      } else if (window.innerWidth < 768) {
+        setItemCarou(2);
+      } else if (window.innerWidth > 912) {
+        setItemCarou(5);
+      }
+    });
+  }, []);
+  useEffect(() => {
     dispatch(layDanhSachKhoaHoc());
   }, [dispatch]);
   useEffect(() => {
@@ -125,12 +186,12 @@ export default function KhoaHoc() {
   };
 
   return (
-    <div className="khoahoc">
+    <div className="khoahoc ">
       {KhoaHocReducer.DSKH.length === 0 ? (
         <LoadingPage></LoadingPage>
       ) : (
         <Fragment>
-          <div className="khoahoc__title">
+          <div className="khoahoc__title ">
             <div className="khoahoc__title__form  container">
               <div className="">
                 <h1 className="text-white">LEARN FROM THE BEST. ANYWHERE.</h1>
@@ -184,7 +245,31 @@ export default function KhoaHoc() {
             </div>
           </div>
           <div className="khoahoc__content container-fluid mb-5 m-0 p-0 ">
-            <div className="khoahoc__content__all px-5 pt-2 ">
+            <div className="khoahoc__carousel pt-5 container-fluid p-0">
+              <div className="container p-0 ">
+                <h1>Featured courses</h1>
+                <OwlCarousel
+                  className="owl-theme mt-5"
+                  autoplay={true}
+                  rtlClass="owl-rtl"
+                  autoplayTimeout={5000}
+                  items={itemCarou}
+                  loop
+                  margin={10}
+                  nav={false}
+                >
+                  {KhoaHocReducer.DSKH.map((item, index) => {
+                    return (
+                      <div className="item" key={index}>
+                        <ItemPimSlide item={item}></ItemPimSlide>
+                      </div>
+                    );
+                  })}
+                </OwlCarousel>
+              </div>
+            </div>
+
+            <div className="khoahoc__content__all container  pt-2 ">
               <div className="my-5 content__title">
                 <span className=" h1  mr-3">Courses</span>
                 <span className="box">
@@ -205,18 +290,20 @@ export default function KhoaHoc() {
                   </span>
                 </span>
               </div>
-              <div className=" row ">{renderKhoaHoc()}</div>
+              <div className=" row content__box" ref={courseRef}>
+                {renderKhoaHoc()}
+              </div>
             </div>
           </div>
-          <div className="container-fluid mb-5">
+          <div className="container mb-5">
             <DongHo></DongHo>
           </div>
 
-          <div className="container-fluid tacgia  mb-5">
+          <div className="container tacgia  mb-5">
             <div className="row mb-3">
-              <h3 className="mx-5">Top Rating Instructors</h3>
+              <h3>Top Rating Instructors</h3>
             </div>
-            <div className="row mx-5 px-5">
+            <div className="row mx-5 px-5 tacgia__box" ref={authorRef}>
               <div className="col-lg-2 col-sm-4 pb-5 tacgia__item text-center">
                 <div className="">
                   <img
@@ -351,7 +438,10 @@ export default function KhoaHoc() {
           <div className="khoahoc__log my-5 container  mx-auto">
             <h3 className="my-5 khoahoc__log__title">Our log</h3>
             <div className="row ">
-              <div className="col-lg-4 col-md-4 col-sm-6 khoahoc__log__item">
+              <div
+                className="col-lg-4 col-md-4 col-sm-6 khoahoc__log__item"
+                ref={blogone}
+              >
                 <div className="card ">
                   <img
                     className="https://cyberlearn-21.web.app/img/blog5.jpeg"
@@ -390,7 +480,10 @@ export default function KhoaHoc() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-6 khoahoc__log__item">
+              <div
+                className="col-lg-4 col-md-4 col-sm-6 khoahoc__log__item"
+                ref={blogtwo}
+              >
                 <div className="card ">
                   <img
                     className="https://cyberlearn-21.web.app/img/blog5.jpeg"
@@ -429,7 +522,10 @@ export default function KhoaHoc() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-12 khoahoc__log__item">
+              <div
+                className="col-lg-4 col-md-4 col-sm-12 khoahoc__log__item"
+                ref={blogthree}
+              >
                 <div className="card ">
                   <img
                     className="https://cyberlearn-21.web.app/img/blog5.jpeg"

@@ -6,6 +6,7 @@
   z-index: 11;
   width: 100%;
   background-color: white;
+
   &__brank {
     text-align: center;
 
@@ -92,7 +93,7 @@
       height: 0%;
       background-color: white;
       border-radius: 15px;
-      box-shadow: 0px 1px 2px 2px rgba(116, 115, 115, 0.774);
+      box-shadow: 0px 0px 3px 0px rgba(172, 170, 170, 0.623);
       transition: 0.6s;
       .sub__box {
         opacity: 0;
@@ -142,6 +143,17 @@
     }
   }
 }
+.activeHeader {
+  // animation: exampleheader 4s linear;
+  position: fixed;
+}
+.activeNavHeader {
+  animation: navheader 0.4s linear;
+}
+.unactiveHeader {
+  animation: unheader 2s linear;
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   .Header {
     &__nav {
@@ -149,5 +161,29 @@
         padding: 0 5px;
       }
     }
+  }
+}
+@keyframes exampleheader {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 84px;
+  }
+}
+@keyframes navheader {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 84px;
+  }
+}
+@keyframes unheader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

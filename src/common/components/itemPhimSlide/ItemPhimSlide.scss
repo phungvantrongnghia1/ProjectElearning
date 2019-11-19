@@ -1,7 +1,7 @@
 .ItemPhimSlide {
   a {
     text-decoration: none;
-    color: orangered;
+    color: #f7bb3ae0;
   }
   width: 240px;
   height: 370px;
@@ -12,11 +12,23 @@
     &-title {
       color: black;
     }
+    &-body {
+      .card-text.icon__card .rate {
+        color: gray !important;
+      }
+    }
+    .icon__card {
+      background-color: green;
+    }
+
     &-body__tacgia {
       color: gray;
     }
     .tien {
       color: gray;
+    }
+    .khuyenmai {
+      color: black;
     }
   }
 }

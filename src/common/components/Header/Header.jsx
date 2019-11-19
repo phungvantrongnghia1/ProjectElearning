@@ -5,10 +5,15 @@ import { Link } from "react-router-dom";
 import { updateCart } from "../../../redux/actions/KhoaHocAction";
 export default function Header() {
   const CartReducer = useSelector(state => state.KhoaHocReducer.Cart);
+
+  const UserReducer = useSelector(state => state.UserReducer.keyLogin);
   const dispatch = useDispatch();
   const menuRef = useRef(null);
+  const navRef = useRef(null);
+  const [widthPage, setWidthPage] = useState(0);
   const [countCart, setCountCart] = useState(0);
-  const [keyLogin, setLogin] = useState("Đăng nhập");
+  const [keyLogin, setLogin] = useState("Login");
+
   const [key, setKey] = useState(false);
   const [classLogin, setClassLogin] = useState(
     "font-user   form-inline my-2 my-lg-0"
@@ -18,13 +23,23 @@ export default function Header() {
   }, [CartReducer.length]);
   window.addEventListener("scroll", () => {
     let y = window.pageYOffset;
+
     if (menuRef !== null) {
-      if (y > 100) {
-        menuRef.current.style = "position: fixed;";
+      if (y > 80) {
+        menuRef.current.classList.remove("unactiveHeader");
+        menuRef.current.classList.add("activeHeader");
+        navRef.current.classList.add("activeNavHeader");
+        // menuRef.current.style = "position: fixed;";
       } else {
-        menuRef.current.style = "position:  relative;";
+        // menuRef.current.style = "position:  relative;";
+        menuRef.current.classList.remove("activeHeader");
+        navRef.current.classList.remove("activeNavHeader");
+        menuRef.current.classList.add("unactiveHeader");
       }
     }
+  });
+  window.addEventListener("resize", () => {
+    setWidthPage(window.innerWidth);
   });
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"));
@@ -42,14 +57,16 @@ export default function Header() {
   }, []);
   // call dangNhap model
   const dangNhap = () => {
-    if (keyLogin === "Đăng nhập") {
-      console.log("vo ");
-      console.log(keyLogin);
+    if (keyLogin === "Login") {
       setKey(!key);
+      dispatch({
+        type: "SetKeyLogin",
+        data: !UserReducer
+      });
     }
   };
   const renderDangNhap = () => {
-    if (key) return <FormDangNhap login={login}></FormDangNhap>;
+    if (UserReducer) return <FormDangNhap login={login}></FormDangNhap>;
     return "";
   };
 
@@ -62,12 +79,61 @@ export default function Header() {
   const logout = () => {
     localStorage.removeItem("user");
     setClassLogin("font-user  form-inline my-2 my-lg-0");
-    setLogin("Đăng Nhập");
+    setLogin("Login");
     window.location.reload();
   };
+  const scrollCourse = () => {
+    window.scrollTo({
+      top: 836,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+  const scrollAsk = () => {
+    console.log(window.pageYOffset);
+
+    console.log(window.innerWidth);
+    if (window.innerWidth > 968 && window.innerWidth < 1024) {
+      window.scrollTo({
+        top: 5519,
+        left: 0,
+        behavior: "smooth"
+      });
+    } else if (window.innerWidth > 1024 && window.innerWidth < 1200) {
+      window.scrollTo({
+        top: 4000,
+        left: 0,
+        behavior: "smooth"
+      });
+    } else if (window.innerWidth < 968 && window.innerWidth > 768) {
+      window.scrollTo({
+        top: 5520,
+        left: 0,
+        behavior: "smooth"
+      });
+    } else if (window.innerWidth < 768 && window.innerWidth > 576) {
+      window.scrollTo({
+        top: 6435,
+        left: 0,
+        behavior: "smooth"
+      });
+    } else if (window.innerWidth <= 576) {
+      window.scrollTo({
+        top: 7357,
+        left: 0,
+        behavior: "smooth"
+      });
+    } else {
+      window.scrollTo({
+        top: 3800,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  };
   return (
-    <div className="Header" ref={menuRef}>
-      <nav className="navbar navbar-expand-sm navbar-light  ">
+    <div className="Header " ref={menuRef}>
+      <nav className="navbar navbar-expand-sm navbar-light  " ref={navRef}>
         <a className="Header__brank navbar-brand" href="/#">
           <i className="fas fa-graduation-cap    " />
 
@@ -94,42 +160,24 @@ export default function Header() {
             </li>
 
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="/a"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+              <span
+                className="nav-link dropdown-toggle btn"
+                onClick={() => scrollCourse()}
               >
                 <i className="fas fa-book-open    " />
-                Khóa Học
-              </a>
-              <div className="dropdown-menu" aria-labelledby="dropdownId">
-                <a className="dropdown-item" href="/khoahoc">
-                  Lập Trình FontEnd
-                </a>
-                <a className="dropdown-item" href="/khoahoc">
-                  Lập Trình BackEnd
-                </a>
-                <a className="dropdown-item" href="/khoahoc">
-                  Tư Duy
-                </a>
-                <a className="dropdown-item" href="/khoahoc">
-                  Lập Trình Fullstack
-                </a>
-              </div>
+                Courses
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#">
+              <span className="nav-link btn" onClick={() => scrollAsk()}>
                 <i className="fas fa-question-circle    " />
-                Hỏi Đáp
-              </a>
+                Question
+              </span>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/#">
                 <i className="fas fa-file-code    " />
-                Tài Liệu
+                DOC
               </a>
             </li>
           </ul>
@@ -164,7 +212,7 @@ export default function Header() {
                     <span>
                       <i className="fas fa-sign-in-alt    " />
                     </span>
-                    Logout
+                    <Link to="/">Logout</Link>
                   </li>
                 </ul>
               </div>

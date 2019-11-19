@@ -1,0 +1,17 @@
+.wrapper {
+  .header-top {
+    position: relative !important;
+  }
+  &__body {
+    height: 100.7% !important;
+    .left {
+      flex: 0 0 15.8% !important;
+      max-width: 15.9%;
+    }
+    .right {
+      flex: 1 0 83.333333% !important;
+
+      max-width: 84.333333% !important;
+    }
+  }
+}
